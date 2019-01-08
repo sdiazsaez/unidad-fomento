@@ -18,7 +18,7 @@ class UnidadFomentoServiceProvider extends ServiceProvider {
                              __DIR__ . '/../config/unidad-fomento.php' => config_path('unidad-fomento.php'),
                          ]);
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->commands(UnidadFomento::class);
     }
 
@@ -29,6 +29,7 @@ class UnidadFomentoServiceProvider extends ServiceProvider {
      */
     public function register() {
         $this->app->register(UFScraperServiceProvider::class);
+        $this->mergeConfigFrom(__DIR__ . '/../config/unidad-fomento.php', 'unidad-fomento');
         $this->app->bind('UFController', function(){
             return new Http\Controllers\UnidadFomento\UnidadFomentoController();
         });

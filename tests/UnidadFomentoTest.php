@@ -102,4 +102,5 @@ class UnidadFomentoTest extends AbstractTestCase {
         $records = UnidadFomento::whereIn('date', $range)->get();
         $this->assertCount(count($range), $records);
     }
+
 }

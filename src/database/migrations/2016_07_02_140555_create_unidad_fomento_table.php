@@ -22,7 +22,7 @@ class CreateUnidadFomentoTable extends Migration
     {
         $this->create(function(Blueprint $table){
             $table->increments('id');
-            $table->string('UF');
+            $table->decimal('UF', 10, 2);
             $table->date('date');
             if(config('unidad-fomento.timestamps')) {
                 $table->timestamps();

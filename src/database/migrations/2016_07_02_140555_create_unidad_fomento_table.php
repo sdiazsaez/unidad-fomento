@@ -23,7 +23,7 @@ class CreateUnidadFomentoTable extends Migration
         $this->create(function(Blueprint $table){
             $table->increments('id');
             $table->string('UF');
-            $table->timestamp('date');
+            $table->date('date');
             if(config('unidad-fomento.timestamps')) {
                 $table->timestamps();
             }

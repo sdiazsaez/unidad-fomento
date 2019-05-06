@@ -8,7 +8,6 @@ use Larangular\RoutingController\Model as RoutingModel;
 class UnidadFomento extends Model {
     use RoutingModel;
 
-    protected $table      = 'UF';
     protected $fillable   = [
         'UF',
         'date',
@@ -16,8 +15,9 @@ class UnidadFomento extends Model {
 
     public function __construct(array $attributes = []) {
         parent::__construct($attributes);
-        $this->connection = config('unidad-fomento.connection');
-        $this->timestamps = config('unidad-fomento.timestamps');
+        $this->table = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.name');
+        $this->connection = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.connection');
+        $this->timestamps = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.timestamps');
     }
 
     public function scopeByDate($query, $date = null) {

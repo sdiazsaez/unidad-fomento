@@ -23,7 +23,7 @@ class UnidadFomentoTableSeeder extends Seeder {
         $csvStartSince = Carbon::createFromFormat('Y-m-d', '2016-01-01');
 
         if ($csvStartSince->lessThan($this->startDate)) {
-            $entries = $this->getData(__DIR__ . '/UF.csv');
+            $entries = $this->getData(__DIR__ . '/unidad_fomento.csv');
             UnidadFomento::insert($entries);
         }
 

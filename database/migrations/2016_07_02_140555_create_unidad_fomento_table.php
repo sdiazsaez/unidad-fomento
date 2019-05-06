@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Larangular\MigrationPackage\Migration\Schematics;
+use Larangular\Installable\Facades\InstallableConfig;
 
 class CreateUnidadFomentoTable extends Migration {
     use Schematics;

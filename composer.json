@@ -18,6 +18,9 @@
         "larangular/installable": "0.1.*"
     },
     "autoload": {
+        "classmap": [
+            "database/seeds"
+        ],
         "psr-4": {
             "Larangular\\UnidadFomento\\": "./src"
         }

@@ -3,21 +3,23 @@
 namespace Larangular\UnidadFomento\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Larangular\Installable\Facades\InstallableConfig;
 use Larangular\RoutingController\Model as RoutingModel;
 
 class UnidadFomento extends Model {
     use RoutingModel;
 
-    protected $fillable   = [
+    protected $fillable = [
         'UF',
         'date',
     ];
 
     public function __construct(array $attributes = []) {
         parent::__construct($attributes);
-        $this->table = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.name');
-        $this->connection = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.connection');
-        $this->timestamps = config('installable.migrations.Larangular\UnidadFomento\UnidadFomentoServiceProvider.unidad-fomento.timestamps');
+        $installableConfig = InstallableConfig::config('Larangular\UnidadFomento\UnidadFomentoServiceProvider');
+        $this->connection = $installableConfig->getConnection('unidad_fomento');
+        $this->table = $installableConfig->getName('unidad_fomento');
+        $this->timestamps = $installableConfig->getTimestamp('unidad_fomento');
     }
 
     public function scopeByDate($query, $date = null) {

@@ -12,15 +12,10 @@ use Larangular\RoutingController\{Controller,
     RecursiveStore\RecursiveOption};
 
 
-class Gateway extends Controller implements IGatewayModel, HasResource {
-
+class Gateway extends Controller implements IGatewayModel {
 
     public function model() {
         return UnidadFomento::class;
-    }
-
-    public function resource() {
-        return UnidadFomentoResource::class;
     }
 
     public function allowedMethods() {
